@@ -1508,6 +1508,7 @@ namespace MaytinhCasio
                             double ts = double.Parse(t[0]) / ucln;
                             double ms = double.Parse(t[1]) / ucln;
                             if(ms == 1) lblKetqua.Text = ts.ToString();
+                            if(ms == 0) throw new DivideByZeroException();
                             else lblKetqua.Text = $"{ts.ToString()}/{ms.ToString()}";
                         }
                         else lblKetqua.Text = tmp;
@@ -1530,14 +1531,7 @@ namespace MaytinhCasio
                         double ts = (double.Parse(ps1[0]) * double.Parse(ps2[1])) + (double.Parse(ps1[1]) * double.Parse(ps2[0]));
                         double ms = double.Parse(ps1[1]) * double.Parse(ps2[1]);
                         ans = ts / ms;
-                        if (ms == 0)
-                        {
-                            lblKetqua.ResetText();
-                            lblOutput.TextAlign = ContentAlignment.MiddleCenter;
-                            lblOutput.Text = "Math Error";
-                            lblKetqua.Visible = false;
-                            return;
-                        }
+                        if (ms == 0) throw new DivideByZeroException();
                         if (ts % ms != 0)
                             lblKetqua.Text = $"{ts.ToString()}/{ms.ToString()}";
                         else lblKetqua.Text = $"{ans.ToString()}";
@@ -1559,14 +1553,7 @@ namespace MaytinhCasio
                         double ts = (double.Parse(ps1[0]) * double.Parse(ps2[1])) - (double.Parse(ps1[1]) * double.Parse(ps2[0]));
                         double ms = double.Parse(ps1[1]) * double.Parse(ps2[1]);
                         ans = ts / ms;
-                        if (ms == 0)
-                        {
-                            lblKetqua.ResetText();
-                            lblOutput.TextAlign = ContentAlignment.MiddleCenter;
-                            lblOutput.Text = "Math Error";
-                            lblKetqua.Visible = false;
-                            return;
-                        }
+                        if (ms == 0) throw new DivideByZeroException();
                         if (ts % ms != 0)
                             lblKetqua.Text = $"{ts.ToString()}/{ms.ToString()}";
                         else lblKetqua.Text = $"{ans.ToString()}";
@@ -1588,14 +1575,7 @@ namespace MaytinhCasio
                         double ts = (double.Parse(ps1[0]) * double.Parse(ps2[0]));
                         double ms = double.Parse(ps1[1]) * double.Parse(ps2[1]);
                         ans = ts / ms;
-                        if (ms == 0)
-                        {
-                            lblKetqua.ResetText();
-                            lblOutput.TextAlign = ContentAlignment.MiddleCenter;
-                            lblOutput.Text = "Math Error";
-                            lblKetqua.Visible = false;
-                            return;
-                        }
+                        if (ms == 0) throw new DivideByZeroException();
                         if (ts % ms != 0)
                             lblKetqua.Text = $"{ts.ToString()}/{ms.ToString()}";
                         else lblKetqua.Text = $"{ans.ToString()}";
@@ -1617,19 +1597,19 @@ namespace MaytinhCasio
                         double ts = (double.Parse(ps1[0]) * double.Parse(ps2[1]));
                         double ms = double.Parse(ps1[1]) * double.Parse(ps2[0]);
                         ans = ts / ms;
-                        if (ms == 0)
-                        {
-                            lblKetqua.ResetText();
-                            lblOutput.TextAlign = ContentAlignment.MiddleCenter;
-                            lblOutput.Text = "Math Error";
-                            lblKetqua.Visible = false;
-                            return;
-                        }
+                        if (ms == 0) throw new DivideByZeroException();
                         if (ts % ms != 0)
                             lblKetqua.Text = $"{ts.ToString()}/{ms.ToString()}";
                         else lblKetqua.Text = $"{ans.ToString()}";
                     }
                     else check = true;
+                }
+                catch (DivideByZeroException)
+                {
+                    lblKetqua.ResetText();
+                    lblOutput.TextAlign = ContentAlignment.MiddleCenter;
+                    lblOutput.Text = "Math Error";
+                    lblKetqua.Visible = false;
                 }
                 catch(Exception ex) 
                 {

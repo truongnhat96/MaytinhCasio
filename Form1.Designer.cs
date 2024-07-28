@@ -104,7 +104,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnTan);
             this.flowLayoutPanel1.Controls.Add(this.btnEqual);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 279);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 247);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(565, 420);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -597,7 +597,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(565, 699);
+            this.ClientSize = new System.Drawing.Size(565, 667);
             this.Controls.Add(this.lblKetqua);
             this.Controls.Add(this.lblOutput);
             this.Controls.Add(this.flowLayoutPanel1);
